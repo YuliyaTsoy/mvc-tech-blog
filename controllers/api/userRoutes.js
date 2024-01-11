@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
       })
       .catch(err => {
         console.log(err);
-        res.status(500).json({ msg: "an error occured", err });
+        res.status(500).json({ msg: "oops.. there is an error", err });
       });
   });
 
@@ -31,7 +31,7 @@ router.get("/:id", (req, res) => {
       })
       .catch(err => {
         console.log(err);
-        res.status(500).json({ msg: "an error occured", err });
+        res.status(500).json({ msg: "oops.. there is an error", err });
       });
 });
 
@@ -79,7 +79,7 @@ router.post("/login", (req, res) => {
       }
     }).catch(err => {
         console.log(err);
-        res.status(500).json({ msg: "aoops.. there is an error", err });
+        res.status(500).json({ msg: "oops.. there is an error", err });
       });
 });
   // PUT route: update a user by id
@@ -108,7 +108,7 @@ router.delete("/:id", (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({ msg: "an error occured", err });
+      res.status(500).json({ msg: "oops.. there is an error", err });
     });
   });
 
