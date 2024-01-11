@@ -5,16 +5,17 @@ const session = require("express-session");
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 require("dotenv").config();
+const helpers = require('./util/helper');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 const { User, Blog, Comment } = require("./models");
 
 const sess = {
-  secret: process.env.DB_SESSION_SECRET,
+  secret: 'Super secret secret',
   cookie: {
     // 24 hours
     maxAge: 24 * 60 * 60 * 1000,
@@ -30,9 +31,9 @@ app.use(session(sess));
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", routes);
 
