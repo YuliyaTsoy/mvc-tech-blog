@@ -51,7 +51,7 @@ router.get("/blogs/:id", (req, res) =>{
             return res.render('comment', {hbsBlog, loggedIn, username:req.session.user?.username})
         }
         // If your post -> render deleteUpdate page
-        res.render("deleteUpdate", {hbsBlog, loggedIn, username:req.session.user?.username})
+        res.render("deleteupdate", {hbsBlog, loggedIn, username:req.session.user?.username})
       })
       .catch(err => {
         console.log(err);
